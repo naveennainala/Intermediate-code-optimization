@@ -1,0 +1,330 @@
+{
+  "config": {
+    "seed": 42,
+    "n_programs": 6000,
+    "sequences": {
+      "S0_none": [],
+      "S1_dce": [
+        "dce"
+      ],
+      "S2_cf": [
+        "cf",
+        "dce"
+      ],
+      "S3_alg": [
+        "alg",
+        "dce"
+      ],
+      "S4_cse": [
+        "cse",
+        "cp",
+        "dce"
+      ],
+      "S5_cf_alg": [
+        "cf",
+        "alg",
+        "dce"
+      ],
+      "S6_cf_cse": [
+        "cf",
+        "cse",
+        "cp",
+        "dce"
+      ],
+      "S7_alg_cse": [
+        "alg",
+        "cse",
+        "cp",
+        "dce"
+      ],
+      "S8_full": [
+        "cf",
+        "alg",
+        "cse",
+        "cp",
+        "dce"
+      ],
+      "S9_full_x2": [
+        "cf",
+        "alg",
+        "cse",
+        "cp",
+        "dce",
+        "cf",
+        "alg",
+        "cp",
+        "dce"
+      ]
+    }
+  },
+  "dataset": {
+    "n": 6000,
+    "label_counts": {
+      "S3_alg": 353,
+      "S8_full": 978,
+      "S9_full_x2": 1533,
+      "S4_cse": 234,
+      "S7_alg_cse": 1394,
+      "S5_cf_alg": 674,
+      "S2_cf": 539,
+      "S1_dce": 64,
+      "S6_cf_cse": 218,
+      "S0_none": 13
+    },
+    "equivalence_failures_checked": 0,
+    "mean_instr": 23.843666666666667
+  },
+  "leakage_check": "no identical program appears in both train and test",
+  "test_results": {
+    "No optimization": {
+      "acc": 0.0025,
+      "macro_f1": 0.0004987531172069825,
+      "macro_precision": 0.00025,
+      "macro_recall": 0.1,
+      "optimal_rate": 0.0025,
+      "cost_reduction_pct": 0.0,
+      "mean_passes": 0.0
+    },
+    "Fixed full pipeline": {
+      "acc": 0.255,
+      "macro_f1": 0.04063745019920319,
+      "macro_precision": 0.025500000000000002,
+      "macro_recall": 0.1,
+      "optimal_rate": 0.9625,
+      "cost_reduction_pct": 70.86214770354906,
+      "mean_passes": 9.0
+    },
+    "Heuristic rules": {
+      "acc": 0.3408333333333333,
+      "macro_f1": 0.2624314429722645,
+      "macro_precision": 0.24938881256725817,
+      "macro_recall": 0.3131640882124514,
+      "optimal_rate": 0.5833333333333334,
+      "cost_reduction_pct": 67.74204070981212,
+      "mean_passes": 3.97
+    },
+    "Oracle": {
+      "acc": 1.0,
+      "macro_f1": 1.0,
+      "macro_precision": 1.0,
+      "macro_recall": 1.0,
+      "optimal_rate": 1.0,
+      "cost_reduction_pct": 70.94532881002087,
+      "mean_passes": 4.9475
+    },
+    "Majority baseline": {
+      "cv_acc_mean": 0.255625,
+      "cv_acc_std": 0.0005103103630798269,
+      "acc": 0.255,
+      "macro_f1": 0.04063745019920319,
+      "macro_precision": 0.025500000000000002,
+      "macro_recall": 0.1,
+      "optimal_rate": 0.9625,
+      "cost_reduction_pct": 70.86214770354906,
+      "mean_passes": 9.0
+    },
+    "Logistic Regression": {
+      "cv_acc_mean": 0.4916666666666667,
+      "cv_acc_std": 0.023264407125239372,
+      "acc": 0.5191666666666667,
+      "macro_f1": 0.4670928214433342,
+      "macro_precision": 0.48196648780436624,
+      "macro_recall": 0.46972737259877545,
+      "optimal_rate": 0.76,
+      "cost_reduction_pct": 69.61280010438414,
+      "mean_passes": 5.129166666666666
+    },
+    "Decision Tree": {
+      "cv_acc_mean": 0.409375,
+      "cv_acc_std": 0.010353978033157643,
+      "acc": 0.4275,
+      "macro_f1": 0.38368063178016093,
+      "macro_precision": 0.39405387196200425,
+      "macro_recall": 0.3917324504424558,
+      "optimal_rate": 0.7016666666666667,
+      "cost_reduction_pct": 68.69943893528183,
+      "mean_passes": 4.975833333333333
+    },
+    "Random Forest": {
+      "cv_acc_mean": 0.4879166666666667,
+      "cv_acc_std": 0.005376453291901637,
+      "acc": 0.515,
+      "macro_f1": 0.44884638688142864,
+      "macro_precision": 0.5427500331802202,
+      "macro_recall": 0.4309183648682411,
+      "optimal_rate": 0.7625,
+      "cost_reduction_pct": 69.5214639874739,
+      "mean_passes": 5.045
+    },
+    "Gradient Boosting": {
+      "cv_acc_mean": 0.3995833333333333,
+      "cv_acc_std": 0.07978269096600954,
+      "acc": 0.4825,
+      "macro_f1": 0.42189944537454116,
+      "macro_precision": 0.4385414303454379,
+      "macro_recall": 0.4449563034401217,
+      "optimal_rate": 0.7416666666666667,
+      "cost_reduction_pct": 69.20504958246347,
+      "mean_passes": 5.065
+    }
+  },
+  "best_model": "Logistic Regression",
+  "threshold_sweep": [
+    {
+      "threshold": 0.0,
+      "optimal_rate": 0.76,
+      "cost_reduction_pct": 69.61280010438414,
+      "mean_passes": 5.129166666666666,
+      "fallback_rate": 0.0
+    },
+    {
+      "threshold": 0.3,
+      "optimal_rate": 0.7816666666666666,
+      "cost_reduction_pct": 69.75959029227558,
+      "mean_passes": 5.401666666666666,
+      "fallback_rate": 0.059166666666666666
+    },
+    {
+      "threshold": 0.4,
+      "optimal_rate": 0.825,
+      "cost_reduction_pct": 70.01239561586638,
+      "mean_passes": 6.14,
+      "fallback_rate": 0.24083333333333334
+    },
+    {
+      "threshold": 0.5,
+      "optimal_rate": 0.8941666666666667,
+      "cost_reduction_pct": 70.41688413361169,
+      "mean_passes": 7.1575,
+      "fallback_rate": 0.5108333333333334
+    },
+    {
+      "threshold": 0.6,
+      "optimal_rate": 0.9383333333333334,
+      "cost_reduction_pct": 70.69089248434238,
+      "mean_passes": 8.0125,
+      "fallback_rate": 0.74
+    },
+    {
+      "threshold": 0.7,
+      "optimal_rate": 0.9558333333333333,
+      "cost_reduction_pct": 70.81484864300627,
+      "mean_passes": 8.558333333333334,
+      "fallback_rate": 0.8808333333333334
+    },
+    {
+      "threshold": 0.8,
+      "optimal_rate": 0.9608333333333333,
+      "cost_reduction_pct": 70.85562369519833,
+      "mean_passes": 8.8675,
+      "fallback_rate": 0.9708333333333333
+    },
+    {
+      "threshold": 0.9,
+      "optimal_rate": 0.9625,
+      "cost_reduction_pct": 70.86214770354906,
+      "mean_passes": 8.968333333333334,
+      "fallback_rate": 0.995
+    }
+  ],
+  "robustness_long_programs": {
+    "acc": 0.6025,
+    "macro_f1": 0.30042705657504915,
+    "optimal_rate": 0.875,
+    "cost_reduction_pct": 80.82708716217384,
+    "mean_passes": 7.031666666666666,
+    "fixed_pipeline_cost_reduction_pct": 81.2378653361986,
+    "fixed_pipeline_passes": 9.0
+  },
+  "rf_feature_importance": [
+    [
+      "n_const_const",
+      0.10872174551147694
+    ],
+    [
+      "frac_const",
+      0.07589799824818691
+    ],
+    [
+      "frac_pow2",
+      0.0657448092957466
+    ],
+    [
+      "frac_dead",
+      0.06511923226639764
+    ],
+    [
+      "n_unique_vars",
+      0.053568406598736344
+    ],
+    [
+      "n_instr",
+      0.05200685268225055
+    ],
+    [
+      "n_sub",
+      0.051190181851905076
+    ],
+    [
+      "frac_dup",
+      0.049226254284659016
+    ],
+    [
+      "n_const_operand",
+      0.04738541722048583
+    ],
+    [
+      "n_mul",
+      0.045790115604768575
+    ],
+    [
+      "frac_copy",
+      0.04426410097533854
+    ],
+    [
+      "frac_identity",
+      0.04398809924897085
+    ],
+    [
+      "n_add",
+      0.042058947020144205
+    ],
+    [
+      "n_dead",
+      0.04052321506913076
+    ],
+    [
+      "n_pow2_mul",
+      0.03619329106406759
+    ],
+    [
+      "n_dup_expr",
+      0.0345340718345036
+    ],
+    [
+      "n_reassign",
+      0.03301334752721095
+    ],
+    [
+      "n_identity",
+      0.03137527705408842
+    ],
+    [
+      "n_copy",
+      0.03076568645964418
+    ],
+    [
+      "n_pow2_div",
+      0.017229319578827312
+    ],
+    [
+      "n_div",
+      0.017148102057242365
+    ],
+    [
+      "n_outputs",
+      0.014255528546217902
+    ]
+  ],
+  "runtime_seconds": 41.12148666381836
+}
